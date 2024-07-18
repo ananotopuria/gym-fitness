@@ -1,0 +1,42 @@
+.card-buttons {
+  background-color: $darkgrey;
+  padding: 2rem 1rem;
+}
+
+.card-btn {
+  background-color: $orange;
+  color: $offWhite;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.card-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.6rem;
+}
+
+
+@media (max-width: 575px) {
+    .card-btns {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 27.5em) {
+    .card-btns {
+        font-size: 1rem;
+    }
+    .card-btn {
+        padding: 0.5rem 1rem;
+    }
+}
+@media (max-width: 23.5em) {
+    .card-btns {
+        font-size: 1rem;
+    }
+    .card-btn {
+        padding: 0.5rem 1rem;
+    }
+}
