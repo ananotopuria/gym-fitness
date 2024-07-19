@@ -1,7 +1,28 @@
-.description{
+.description {
+  color: $offWhite;
+  width: 100%;
+  background-color: $darkgrey;
+  padding: 2rem;
+  font-size: 1.6rem;
+  margin-bottom: 0;
+}
+.social {
+  background-color: $darkgrey;
+  padding: 2rem;
+  &-title {
     color: $offWhite;
-    width: 100%;
-    background-color: $darkgrey;
-    padding: 2rem;
-    font-size: 1.6rem;
+  }
+  &-icons {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    &-btn {
+      font-size: 1.8rem;
+      border: none;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+  }
 }
