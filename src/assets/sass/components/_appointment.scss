@@ -1,0 +1,60 @@
+.appointment {
+    background-color: $white;
+    padding: 2rem;
+  &-title {
+    font-size: 2rem;
+    color: $darkgrey;
+  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  &-btn{
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    padding: 1.2rem 1.6rem;
+    border: none;
+    border-radius: 1rem;
+    color: $white;
+    background-color: $darkgrey;
+    
+  }
+}
+
+
+.appointment__container {
+    display: flex;
+    flex-direction: row;
+   justify-content: space-between;
+    // max-width: 400px;
+    margin: auto;
+  }
+  
+  
+  .appointment__container label {
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin-top: 2rem;
+  }
+  
+
+  .react-datepicker-wrapper,
+  .react-datepicker__input-container,
+  .react-datepicker__input-container input {
+    width: 100%;
+  }
+  
+  .react-datepicker__input-container input {
+    padding: 1.6rem;
+    border: 1px solid $darkgrey;
+    border-radius: 4px;
+    font-size: 1.3rem;
+  }
+  

@@ -6,14 +6,14 @@ import { FaRegFolder } from "react-icons/fa";
 import { IoShareOutline } from "react-icons/io5";
 import { BsTelephone } from "react-icons/bs";
 import CardBtns from "./components/CardBtns";
-import Social from "./components/Social"
+import Social from "./components/Social";
+import Appointment from './components/Appointment';
 
 const buttonData = [
   { icon: <FaRegFolder />, text: "Save Card" },
   { icon: <IoShareOutline />, text: "Share Card" },
   { icon: <BsTelephone />, text: "Contact" },
 ];
-
 
 function App() {
   const [cardData, setCardData] = useState({
@@ -66,10 +66,15 @@ function App() {
         <div className="card-buttons">
           <CardBtns buttons={buttonData} />
         </div>
-        <p className="description">A health club also known as a fitness club, fitness center, health spa, weight romm and commonly referred to as a gym is a place that houses exercise equipment for the purpose of physical exercise.</p>
+        <p className="description">
+          A health club also known as a fitness club, fitness center, health
+          spa, weight romm and commonly referred to as a gym is a place that
+          houses exercise equipment for the purpose of physical exercise.
+        </p>
         <div>
-        <Social contactInfo={cardData.contactInfo} />
-    </div>
+          <Social contactInfo={cardData.contactInfo} />
+        </div>
+        <Appointment />
       </div>
     </div>
   );
