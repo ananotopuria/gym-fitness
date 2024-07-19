@@ -7,7 +7,8 @@ import { IoShareOutline } from "react-icons/io5";
 import { BsTelephone } from "react-icons/bs";
 import CardBtns from "./components/CardBtns";
 import Social from "./components/Social";
-import Appointment from './components/Appointment';
+import Appointment from "./components/Appointment";
+import Services from "./components/Services";
 
 const buttonData = [
   { icon: <FaRegFolder />, text: "Save Card" },
@@ -75,17 +76,22 @@ function App() {
       <div className="wrapper">
         <Hero />
         <div className="card-buttons">
-          <CardBtns buttons={buttonData} handleContactClick={handleContactClick} />
+          <CardBtns
+            buttons={buttonData}
+            handleContactClick={handleContactClick}
+          />
         </div>
         <p className="description">
           A health club also known as a fitness club, fitness center, health
           spa, weight romm and commonly referred to as a gym is a place that
           houses exercise equipment for the purpose of physical exercise.
         </p>
-        <div>
-          <Social contactInfo={cardData.contactInfo} />
-        </div>
+        <Social contactInfo={cardData.contactInfo} />
         <Appointment />
+        <div className="services">
+          <h3>Services</h3>
+          <Services />
+        </div>
       </div>
     </div>
   );
