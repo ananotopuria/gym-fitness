@@ -24,6 +24,7 @@ function App() {
     adress: "",
     contactInfo: [],
     cardImage: "",
+    phone: "",
   });
   useEffect(() => {
     const fetchData = async () => {
@@ -46,12 +47,14 @@ function App() {
       const company =
         items.find((item) => item.name === "Company")?.value || "";
       const adress = items.find((item) => item.name === "Adress")?.value || "";
+      const phone = items.find((item) => item.name === "Phone1")?.value || "";
       setCardData({
         name,
         lastname,
         position,
         company,
         adress,
+        phone,
         contactInfo: items,
         cardImage: data?.data?.cardImage || "",
       });
@@ -59,12 +62,20 @@ function App() {
     };
     fetchData();
   }, []);
+
+  const handleContactClick = () => {
+    if (cardData.phone) {
+      window.location.href = `tel:${cardData.phone}`;
+    } else {
+      alert("Phone number not available");
+    }
+  };
   return (
     <div className="container">
       <div className="wrapper">
         <Hero />
         <div className="card-buttons">
-          <CardBtns buttons={buttonData} />
+          <CardBtns buttons={buttonData} handleContactClick={handleContactClick} />
         </div>
         <p className="description">
           A health club also known as a fitness club, fitness center, health

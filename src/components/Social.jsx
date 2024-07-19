@@ -12,7 +12,7 @@ import viberIcon from "./../assets/icons/icons8-viber.svg";
 import tiktokIcon from "./../assets/icons/icons8-tik-tok.svg";
 import emailIcon from "./../assets/icons/icons8-gmail-30.png";
 import webIcon from "./../assets/icons/internet.png";
-import phoneIcon from "./../assets/icons/telephone.png";
+import telegramIcon from "./../assets/icons/icons8-telegram.svg";
 const iconMap = {
   WhatsApp: whatsappIcon,
   Viber: viberIcon,
@@ -27,8 +27,8 @@ const iconMap = {
   Tiktok: tiktokIcon,
   Whatsapp: whatsappIcon,
   Email: emailIcon,
-  Phone: phoneIcon,
   Website: webIcon,
+  Telegram: telegramIcon,
 };
 
 function Social({ contactInfo }) {
@@ -42,6 +42,7 @@ function Social({ contactInfo }) {
     "Position",
     "Company",
     "Adress",
+    "Phone1",
   ];
   const filteredContactInfo = contactInfo.filter(
     (item) => !excludedNames.includes(item.name)
@@ -58,8 +59,8 @@ function Social({ contactInfo }) {
             className="social-icons-btn"
           >
             <img
-              src={iconMap[item.placeholder] || ""}
-              alt={item.placeholder}
+              src={iconMap[item.name] || ""}
+              alt={item.name}
               style={{ width: "20px", height: "20px" }}
             />
             {/* <span className="ms-2">{item.placeholder}</span> */}
