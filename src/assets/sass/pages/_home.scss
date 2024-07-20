@@ -64,3 +64,35 @@
     object-fit: cover;
   }
 }
+
+.testimonials{
+  background-color: $white;
+  color: $darkgrey;
+  &__title{
+    background-color: $white;
+    color: $darkgrey;
+
+  }
+  &__img{
+
+    width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      object-fit: cover;
+  }
+}
+
+.testimonial{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 27.5em) {
+  .testimonials{
+    flex-direction: column;
+  }
+}

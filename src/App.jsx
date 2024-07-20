@@ -11,6 +11,7 @@ import Appointment from "./components/Appointment";
 import Services from "./components/Services";
 import Products from "./components/Products";
 import Gallery from "./components/Gallery";
+import Testimonials from "./components/Testimonials";
 
 const buttonData = [
   { icon: <FaRegFolder />, text: "Save Card" },
@@ -93,6 +94,7 @@ function App() {
         <Services />
         <Products />
         <Gallery />
+        <Testimonials />
       </div>
     </div>
   );
