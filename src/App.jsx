@@ -9,6 +9,8 @@ import CardBtns from "./components/CardBtns";
 import Social from "./components/Social";
 import Appointment from "./components/Appointment";
 import Services from "./components/Services";
+import Products from "./components/Products";
+import Gallery from "./components/Gallery";
 
 const buttonData = [
   { icon: <FaRegFolder />, text: "Save Card" },
@@ -88,10 +90,9 @@ function App() {
         </p>
         <Social contactInfo={cardData.contactInfo} />
         <Appointment />
-        <div className="services">
-          <h3>Services</h3>
-          <Services />
-        </div>
+        <Services />
+        <Products />
+        <Gallery />
       </div>
     </div>
   );

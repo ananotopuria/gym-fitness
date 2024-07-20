@@ -11,36 +11,36 @@ import card6 from "../assets/card6.jpg";
 
 import { IoIosArrowForward } from "react-icons/io";
 
-export const cardInfo = [
+export const servicesInfo = [
   {
     id: 1,
     image: card1,
     title: "Yoga/Weight Loss",
-    info: "Lörem ipsum patt kar i renyst robotfälla. Tregyktig sana, nuktigt i mandatpingis tes. Analigt anede. Arat lagen",
+    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
   },
   {
     id: 2,
     image: card2,
     title: "Aerobic/Anaerobic",
-    info: "Lörem ipsum patt kar i renyst robotfälla. Tregyktig sana, nuktigt i mandatpingis tes. Analigt anede. Arat lagen",
+    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
   },
   {
     id: 3,
     image: card3,
-    title: "Lörem ipsum patt karirenyst",
-    info: "Lörem ipsum patt kar i renyst robotfälla. Tregyktig sana, nuktigt i mandatpingis tes. Analigt anede. Arat lagen",
+    title: "Personal Training",
+    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
   },
   {
     id: 4,
     image: card4,
-    title: "Lörem ipsum patt karirenyst",
-    info: "Lörem ipsum patt kar i renyst robotfälla. Tregyktig sana, nuktigt i mandatpingis tes. Analigt anede. Arat lagen",
+    title: "Cardio Machines",
+    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
   },
   {
     id: 5,
     image: card5,
-    title: "Lörem ipsum patt karirenyst",
-    info: "Lörem ipsum patt kar i renyst robotfälla. Tregyktig sana, nuktigt i mandatpingis tes. Analigt anede. Arat lagen",
+    title: "Fitness Classes",
+    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
   },
 ];
 
@@ -54,21 +54,27 @@ function Services() {
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
   };
 
   return (
-    <div>
+    <div className="services d-flex flex-column gap-4">
+      <h3>Services</h3>
       <Slider {...settings}>
-        {cardInfo.map((card) => (
-          <div key={card.id} className="service">
-            <img src={card.image} alt={card.title} className="services__img" />
-            <div className="services__container">
-              <h2 className="services-title">{card.title}</h2>
-              <p className="services-text">{card.info}</p>
-            </div>
-            <div className="services__footer">
-              <button className="services__footer-btn">
+        {servicesInfo.map((service) => (
+          <div
+            key={service.id}
+            className="service d-flex row justify-content-center gap-2 p-4"
+          >
+            <img
+              src={service.image}
+              alt={service.title}
+              className="services__img"
+            />
+            <div className="services__container d-flex flex-column text-center">
+              <h2 className="services-title">{service.title}</h2>
+              <p className="services-text">{service.info}</p>
+              <button className="services-btn">
                 More <IoIosArrowForward />
               </button>
             </div>

@@ -6,7 +6,8 @@
   font-size: 1.6rem;
   margin-bottom: 0;
 }
-.social {
+.social,
+.product {
   background-color: $darkgrey;
   padding: 2rem;
   &-title {
@@ -27,37 +28,39 @@
   }
 }
 
-.services{
+.services,
+.products {
   background-color: $white;
   padding: 2rem;
-  &__img{
+  &__img {
     width: 10rem;
+    height: 10rem;
     border-radius: 50%;
+    object-fit: cover;
   }
-}
-
-.service{
-  background-color: $darkgrey;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  border-radius: 1rem;
-  color: $white;
-  &-img{
-    width: 10rem;
-    border-radius: 50%;
-  }
-}
-
-.services-container{
-  display: flex;
-  flex-direction: row;
-}
-
-.services__footer{
-  &-btn{
+  &-btn {
     border: none;
     background-color: $darkgrey;
     color: $white;
+  }
+}
+
+.service,
+.product {
+  background-color: $darkgrey;
+  border: 5px solid $white;
+  border-radius: 1rem;
+  color: $white;
+}
+
+
+.gallery{
+  &-container{
+    width: 20rem;
+    height: auto;
+  }
+  &-image{
+    width: 100%;
+    object-fit: cover;
   }
 }
