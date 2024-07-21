@@ -53,36 +53,33 @@
   color: $white;
 }
 
-
-.gallery{
-  &-container{
+.gallery {
+  &-container {
     width: 20rem;
     height: auto;
   }
-  &-image{
+  &-image {
     width: 100%;
     object-fit: cover;
   }
 }
 
-.testimonials{
+.testimonials {
   background-color: $white;
   color: $darkgrey;
-  &__title{
+  &__title {
     background-color: $white;
     color: $darkgrey;
-
   }
-  &__img{
-
+  &__img {
     width: 10rem;
-      height: 10rem;
-      border-radius: 50%;
-      object-fit: cover;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
   }
 }
 
-.testimonial{
+.testimonial {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,7 +89,30 @@
 }
 
 @media (max-width: 27.5em) {
-  .testimonials{
+  .testimonials {
     flex-direction: column;
   }
+}
+
+.hours {
+  background-color: $darkgrey;
+  padding: 2rem;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  
+}
+
+
+.table-no-borders {
+  border-collapse: collapse;
+}
+
+.table-no-borders th,
+.table-no-borders td {
+  border: none;
+  padding: 10px 20px;
+}
+
+.table-no-borders th {
+  text-align: left; 
 }

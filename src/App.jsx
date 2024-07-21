@@ -12,6 +12,7 @@ import Services from "./components/Services";
 import Products from "./components/Products";
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
+import BusinessHours from "./components/BusinessHours";
 
 const buttonData = [
   { icon: <FaRegFolder />, text: "Save Card" },
@@ -95,6 +96,7 @@ function App() {
         <Products />
         <Gallery />
         <Testimonials />
+        <BusinessHours/>
       </div>
     </div>
   );
