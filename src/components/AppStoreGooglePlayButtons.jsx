@@ -1,7 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { IonIcon } from "@ionic/react";
-// import { logoApple, logoGooglePlaystore } from "ionicons/icons";
 import { FaApple } from "react-icons/fa";
 import { FaGooglePlay } from "react-icons/fa";
 
