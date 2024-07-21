@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import "./App.css";
 import Hero from "./components/Hero";
 import { FaRegFolder } from "react-icons/fa";
@@ -13,6 +12,11 @@ import Products from "./components/Products";
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
 import BusinessHours from "./components/BusinessHours";
+import ContactInformations from "./components/ContactInformations";
+import "react-datepicker/dist/react-datepicker.css";
+import "leaflet/dist/leaflet.css";
+import Map from "./components/Map";
+import AppStoreGooglePlayButtons from "./components/AppStoreGooglePlayButtons";
 
 const buttonData = [
   { icon: <FaRegFolder />, text: "Save Card" },
@@ -96,7 +100,15 @@ function App() {
         <Products />
         <Gallery />
         <Testimonials />
-        <BusinessHours/>
+        <BusinessHours />
+        <ContactInformations contactInfo={cardData.contactInfo} />
+        <CardBtns
+          buttons={buttonData}
+          handleContactClick={handleContactClick}
+        />
+        <Map />
+        <h3 className="text-center mb-4">Download Here!</h3>
+        <AppStoreGooglePlayButtons/>
       </div>
     </div>
   );

@@ -12,31 +12,81 @@
   cursor: pointer;
 }
 .card-btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  background-color: $darkgrey;
+  padding: 2rem;
+  border-radius: 1rem;
 }
-
 
 @media (max-width: 575px) {
-    .card-btns {
-        font-size: 1.2rem;
-    }
+  .card-btns {
+    font-size: 1.2rem;
+  }
 }
 @media (max-width: 27.5em) {
-    .card-btns {
-        font-size: 1rem;
-    }
-    .card-btn {
-        padding: 0.5rem 1rem;
-    }
+  .card-btns {
+    font-size: 1rem;
+  }
+  .card-btn {
+    padding: 0.5rem 1rem;
+  }
 }
 @media (max-width: 23.5em) {
-    .card-btns {
-        font-size: 1rem;
-    }
-    .card-btn {
-        padding: 0.5rem 1rem;
-    }
+  .card-btns {
+    font-size: 1rem;
+  }
+  .card-btn {
+    padding: 0.5rem 1rem;
+  }
 }
+
+
+
+.app-content {
+    gap: 4rem;
+  }
+  
+  .app-icons {
+    display: flex;
+    align-items: center;
+    background-color: $offWhite;
+    border: 1px solid #665f55;
+    padding: 1.2rem 2rem;
+    border-radius: 10rem;
+    width: 20rem;
+    transition: all 0.8s;
+  }
+  
+  .app-icons-icon {
+    color: #403f3d;
+    font-size: 2rem; /* Adjust size if needed */
+  }
+  
+  .app-icons:hover {
+    background-color: $orange;
+    cursor: pointer;
+  }
+  
+  .app-icons:hover .app-icons-icon,
+  .app-icons:hover .app-icons-title,
+  .app-icons:hover .app-icons-company {
+    color: #e1d4c9;
+  }
+  
+  .app-icons-title {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+    color: #403f3d;
+  }
+  
+  .app-icons-company {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #403f3d;
+  }
+  
