@@ -43,50 +43,74 @@
   }
 }
 
-
-
 .app-content {
-    gap: 4rem;
+  gap: 4rem;
+}
+
+.app-icons {
+  display: flex;
+  align-items: center;
+  background-color: $offWhite;
+  border: 1px solid #665f55;
+  padding: 1.2rem 2rem;
+  border-radius: 10rem;
+  width: 20rem;
+  transition: all 0.8s;
+}
+
+.app-icons-icon {
+  color: #403f3d;
+  font-size: 2rem;
+}
+
+.app-icons:hover {
+  background-color: $orange;
+  cursor: pointer;
+}
+
+.app-icons:hover .app-icons-icon,
+.app-icons:hover .app-icons-title,
+.app-icons:hover .app-icons-company {
+  color: #e1d4c9;
+}
+
+.app-icons-title {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 14px;
+  color: #403f3d;
+}
+
+.app-icons-company {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #403f3d;
+}
+.icon {
+  font-size: 4.8rem;
+}
+
+@media only screen and (max-width: 31.25em) {
+  .app-content {
+    gap: 2rem;
   }
-  
+
   .app-icons {
-    display: flex;
-    align-items: center;
-    background-color: $offWhite;
-    border: 1px solid #665f55;
-    padding: 1.2rem 2rem;
-    border-radius: 10rem;
-    width: 20rem;
-    transition: all 0.8s;
+    padding: 1rem 1.6rem;
+    width: 15rem;
   }
-  
-  .app-icons-icon {
-    color: #403f3d;
-    font-size: 2rem; /* Adjust size if needed */
-  }
-  
-  .app-icons:hover {
-    background-color: $orange;
-    cursor: pointer;
-  }
-  
-  .app-icons:hover .app-icons-icon,
-  .app-icons:hover .app-icons-title,
-  .app-icons:hover .app-icons-company {
-    color: #e1d4c9;
-  }
-  
+
   .app-icons-title {
-    font-size: 10px;
-    font-weight: 600;
-    line-height: 14px;
-    color: #403f3d;
+    font-size: 6px;
+    line-height: 10px;
   }
-  
+
   .app-icons-company {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-    color: #403f3d;
+    font-size: 10px;
+    line-height: 16px;
   }
-  
+  .icon {
+    font-size: 2.6rem;
+  }
+}

@@ -1,6 +1,6 @@
 import Cardbtn from "./Cardbtn";
 
-function CardBtns({ buttons, handleContactClick }) {
+function CardBtns({ buttons, handleContactClick, handleDownload, handleShare }) {
   return (
     <div className="card-btns">
       {buttons.map((button, index) => (
@@ -8,8 +8,11 @@ function CardBtns({ buttons, handleContactClick }) {
           key={index}
           icon={button.icon}
           text={button.text}
-          onClick={button.text === "Contact" ? handleContactClick : undefined}
-          className="card-btn"
+          onClick={() => {
+            if (button.text === "Save Card") handleDownload();
+            else if (button.text === "Share Card") handleShare();
+            else if (button.text === "Contact") handleContactClick();
+          }}
         />
       ))}
     </div>

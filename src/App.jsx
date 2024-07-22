@@ -72,6 +72,41 @@ function App() {
     fetchData();
   }, []);
 
+  const handleDownload = () => {
+    const vCard = `
+      BEGIN:VCARD
+      VERSION:3.0
+      FN:${cardData.name} ${cardData.lastname}
+      ORG:${cardData.company}
+      TITLE:${cardData.position}
+      TEL;TYPE=WORK,VOICE:${cardData.phone}
+      ADR;TYPE=WORK:;;${cardData.adress}
+      END:VCARD
+    `;
+    const blob = new Blob([vCard], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
+    const newLink = document.createElement("a");
+    newLink.download = "vCard.vcf";
+    newLink.href = url;
+
+    document.body.appendChild(newLink);
+    newLink.click();
+    document.body.removeChild(newLink);
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "vCard",
+          text: "Check out this vCard!",
+          url: window.location.href,
+        })
+        .catch(console.error);
+    } else {
+      alert("Sharing is not supported on this browser.");
+    }
+  };
   const handleContactClick = () => {
     if (cardData.phone) {
       window.location.href = `tel:${cardData.phone}`;
@@ -87,6 +122,8 @@ function App() {
           <CardBtns
             buttons={buttonData}
             handleContactClick={handleContactClick}
+            handleDownload={handleDownload}
+            handleShare={handleShare}
           />
         </div>
         <p className="description">
@@ -105,10 +142,12 @@ function App() {
         <CardBtns
           buttons={buttonData}
           handleContactClick={handleContactClick}
+          handleDownload={handleDownload}
+          handleShare={handleShare}
         />
         <Map />
         <h3 className="text-center mb-4">Download Here!</h3>
-        <AppStoreGooglePlayButtons/>
+        <AppStoreGooglePlayButtons />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 
 function ContactInformations({ contactInfo }) {
   return (
-    <div>
+    <div className="mt-5">
       <h3>Contact Informations</h3>
       <ul>
         {contactInfo.map((info, index) => (

@@ -7,7 +7,7 @@ const AppStoreGooglePlayButtons = () => {
   return (
     <div className="d-flex flex-row gap-4 justify-content-center app-content">
       <button className="btn google-play app-icons d-flex align-items-center">
-        <FaGooglePlay style={{ fontSize: "48px" }} />
+        <FaGooglePlay className="icon" />
 
         <div className="ms-2">
           <span className="app-icons-title d-block">GET IN ONE</span>
@@ -15,7 +15,7 @@ const AppStoreGooglePlayButtons = () => {
         </div>
       </button>
       <button className="btn app-icons d-flex align-items-center">
-        <FaApple style={{ fontSize: "48px" }} />
+        <FaApple className="icon" />
         <div className="ms-2">
           <span className="app-icons-title d-block">Available on the</span>
           <span className="app-icons-company d-block">App Store</span>
