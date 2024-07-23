@@ -107,12 +107,32 @@ export const GetCards = async () => {
   }
 };
 
+// export const GetInfo = async () => {
+//   try {
+//     const response = await fetch(
+//       "https://testing.api.addme.ge/api/User/GetProfileData",
+//       {
+//         method: "GET", // or 'POST', 'PUT', etc.
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${token}`,
+//         },
+//       }
+//     );
+
+//     return await response.json();
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//     throw error;
+//   }
+// };
+
 export const GetInfo = async () => {
   try {
     const response = await fetch(
       "https://testing.api.addme.ge/api/User/GetProfileData",
       {
-        method: "GET", // or 'POST', 'PUT', etc.
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -120,9 +140,29 @@ export const GetInfo = async () => {
       }
     );
 
-    return await response.json();
+    const result = await response.json();
+    if (response.ok) {
+      return {
+        success: true,
+        data: result,
+        errorCode: 0,
+        errors: null,
+      };
+    } else {
+      return {
+        success: false,
+        data: null,
+        errorCode: result.errorCode,
+        errors: result.errors,
+      };
+    }
   } catch (error) {
     console.error("Error fetching data:", error);
-    throw error;
+    return {
+      success: false,
+      data: null,
+      errorCode: -1,
+      errors: error.message,
+    };
   }
 };
