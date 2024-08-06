@@ -120,3 +120,18 @@
 .table-no-borders th {
   text-align: left;
 }
+
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+}
+
+.slides-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}

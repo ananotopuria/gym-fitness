@@ -1,12 +1,10 @@
-import React from "react";
-import Slider from "react-slick";
-import useWindowSize from "./useWindowSize";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import card1 from "../assets/card1.jpg";
 import card2 from "../assets/card2.jpg";
 import card3 from "../assets/card3.jpg";
 import card4 from "../assets/card4.jpg";
 import card5 from "../assets/card5.jpg";
-import card6 from "../assets/card6.jpg";
 
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -44,42 +42,109 @@ export const servicesInfo = [
 ];
 
 function Services() {
-  const size = useWindowSize();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const slidesToShow = 2;
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(
+        (prevIndex) => (prevIndex + slidesToShow) % servicesInfo.length
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.2 },
+      },
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.2 },
+      },
+    }),
   };
+
+  const direction = 1;
+
+  // visibility of slides
+  const visibleSlides =
+    servicesInfo.length < slidesToShow
+      ? servicesInfo
+      : [
+          ...servicesInfo.slice(currentIndex, currentIndex + slidesToShow),
+          ...servicesInfo.slice(
+            0,
+            Math.max(0, slidesToShow - (servicesInfo.length - currentIndex))
+          ),
+        ];
 
   return (
     <div className="services d-flex flex-column gap-4">
       <h3>Services</h3>
-      <Slider {...settings}>
-        {servicesInfo.map((service) => (
-          <div
-            key={service.id}
-            className="service d-flex row justify-content-center gap-2 p-4"
-          >
-            <img
-              src={service.image}
-              alt={service.title}
-              className="services__img"
-            />
-            <div className="services__container d-flex flex-column text-center">
-              <h2 className="services-title">{service.title}</h2>
-              <p className="services-text">{service.info}</p>
-              <button className="services-btn">
-                More <IoIosArrowForward />
-              </button>
-            </div>
-          </div>
-        ))}
-      </Slider>
+      <div
+        className="slider-container"
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          width: "100%",
+          height: "400px",
+        }}
+      >
+        <div
+          className="slides-wrapper"
+          style={{
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            transition: "transform 0.5s ease",
+          }}
+        >
+          <AnimatePresence initial={false} custom={direction}>
+            {visibleSlides.map((service, index) => (
+              <motion.div
+                key={service.id}
+                className="service d-flex flex-column align-items-center justify-content-center gap-2 p-4"
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                style={{
+                  flex: `0 0 ${100 / slidesToShow}%`, // number of slides shown
+                  height: "100%",
+                }}
+              >
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="services__img"
+                />
+                <div className="services__container d-flex flex-column text-center">
+                  <h2 className="services-title">{service.title}</h2>
+                  <p className="services-text">{service.info}</p>
+                  <button className="services-btn">
+                    More <IoIosArrowForward />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      </div>
     </div>
   );
 }
